@@ -28,7 +28,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BlackFilter} class provides a client for reading in a <em>blacklist</em>

@@ -18,7 +18,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Counter} class is a mutable data type to encapsulate a counter.

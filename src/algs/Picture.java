@@ -18,7 +18,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.awt.Color;
 import java.awt.FileDialog;

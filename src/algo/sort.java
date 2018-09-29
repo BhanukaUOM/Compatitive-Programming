@@ -1,4 +1,4 @@
-package CHelper.src.algo;
+package algo;
 
 public class sort {
     public  static int[] Insertion(int arr[])

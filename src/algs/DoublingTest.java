@@ -14,7 +14,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DoublingTest} class provides a client for measuring

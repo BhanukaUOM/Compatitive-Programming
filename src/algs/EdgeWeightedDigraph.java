@@ -10,7 +10,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code EdgeWeightedDigraph} class represents a edge-weighted

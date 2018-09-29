@@ -26,7 +26,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Topological} class represents a data type for 

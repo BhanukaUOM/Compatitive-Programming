@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code RectHV} class is an immutable data type to encapsulate a

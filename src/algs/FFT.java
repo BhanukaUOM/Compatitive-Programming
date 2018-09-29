@@ -59,7 +59,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code FFT} class provides methods for computing the 

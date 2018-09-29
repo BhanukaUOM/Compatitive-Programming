@@ -11,7 +11,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;

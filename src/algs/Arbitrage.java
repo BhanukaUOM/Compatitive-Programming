@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Arbitrage} class provides a client that finds an arbitrage

@@ -13,7 +13,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LongestCommonSubstring} class provides a {@link SuffixArray}

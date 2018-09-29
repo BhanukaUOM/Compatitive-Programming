@@ -27,7 +27,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Whitelist} class provides a client for reading in

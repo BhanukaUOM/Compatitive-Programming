@@ -5,7 +5,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.DataInputStream;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.Writer;
@@ -22,66 +21,49 @@ public class Main {
         OutputStream outputStream = System.out;
         input in = new input(inputStream);
         output out = new output(outputStream);
-        MinuteToWinIt solver = new MinuteToWinIt();
+        SandunsCourierService solver = new SandunsCourierService();
         solver.solve(1, in, out);
         out.close();
     }
 
-    static class MinuteToWinIt {
+    static class SandunsCourierService {
         public void solve(int testNumber, input in, output out) {
-            int n = in.nextInt();
-            int m = in.nextInt();
-            long dp[] = new long[100000];
+            int[] arr = {11, 2, 3, 4, 7, 9, 10, 22, 5, 1};
+            int min, max;
+            int n = arr.length;
+            int i = 0;
 
-            for (int i = 0; i < n; i++) {
-                int tmp = in.nextInt();
-                dp[tmp - (i) * m]++;
-                //out.println(tmp-(i)*m);
-            }
-
-            out.println(n - max(dp));
-        }
-
-        private long max(long num1, long num2) {
-            if (num1 < num2) return num2;
-            return num1;
-        }
-
-        private long max(long[] arr) {
-            long maximum = arr[0];
-            for (int i = 1; i < arr.length; i++) maximum = max(maximum, arr[i]);
-            return maximum;
-        }
-
-    }
-
-    static class output {
-        private final PrintWriter writer;
-
-        public output(OutputStream outputStream) {
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-        }
-
-        public output(Writer writer) {
-            this.writer = new PrintWriter(writer);
-        }
-
-        public void print(Object... objects) {
-            for (int i = 0; i < objects.length; i++) {
-                if (i != 0) {
-                    writer.print(' ');
+            if (n % 2 == 0) {
+                if (arr[0] > arr[1]) {
+                    max = arr[0];
+                    min = arr[1];
+                } else {
+                    min = arr[0];
+                    max = arr[1];
                 }
-                writer.print(objects[i]);
+                i = 2;
+            } else {
+                min = arr[0];
+                max = arr[0];
+                i = 1;
             }
-        }
 
-        public void println(Object... objects) {
-            print(objects);
-            writer.println();
-        }
+            for (; i < n - 1; i += 2) {
+                if (arr[i] > arr[i + 1]) {
+                    if (arr[i] > max)
+                        max = arr[i];
+                    if (arr[i + 1] < min)
+                        min = arr[i + 1];
+                } else {
+                    if (arr[i + 1] > max)
+                        max = arr[i + 1];
+                    if (arr[i] < min)
+                        min = arr[i];
+                }
+            }
 
-        public void close() {
-            writer.close();
+            out.print(min, max);
+
         }
 
     }
@@ -115,37 +97,30 @@ public class Main {
             bufferPointer = bytesRead = 0;
         }
 
-        public int nextInt() {
-            int ret = 0;
-            byte c = read();
-            while (c <= ' ')
-                c = read();
-            boolean neg = (c == '-');
-            if (neg)
-                c = read();
-            do {
-                ret = ret * 10 + c - '0';
-            } while ((c = read()) >= '0' && c <= '9');
+    }
 
-            if (neg)
-                return -ret;
-            return ret;
+    static class output {
+        private final PrintWriter writer;
+
+        public output(OutputStream outputStream) {
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
         }
 
-        private void fillBuffer() {
-            try {
-                bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
-            } catch (IOException e) {
-                e.printStackTrace();
+        public output(Writer writer) {
+            this.writer = new PrintWriter(writer);
+        }
+
+        public void print(Object... objects) {
+            for (int i = 0; i < objects.length; i++) {
+                if (i != 0) {
+                    writer.print(' ');
+                }
+                writer.print(objects[i]);
             }
-            if (bytesRead == -1)
-                buffer[0] = -1;
         }
 
-        private byte read() {
-            if (bufferPointer == bytesRead)
-                fillBuffer();
-            return buffer[bufferPointer++];
+        public void close() {
+            writer.close();
         }
 
     }

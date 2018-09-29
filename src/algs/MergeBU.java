@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code MergeBU} class provides static methods for sorting an

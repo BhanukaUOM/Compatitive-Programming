@@ -17,7 +17,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code TopM} class provides a client that reads a sequence of

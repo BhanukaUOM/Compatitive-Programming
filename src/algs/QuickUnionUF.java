@@ -10,7 +10,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code QuickUnionUF} class represents a <em>union–find data type</em>

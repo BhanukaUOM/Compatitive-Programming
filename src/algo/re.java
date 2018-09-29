@@ -1,4 +1,4 @@
-package CHelper.src.algo;
+package algo;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

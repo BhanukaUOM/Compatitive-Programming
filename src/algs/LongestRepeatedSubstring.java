@@ -26,7 +26,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LongestRepeatedSubstring} class provides a {@link SuffixArray}

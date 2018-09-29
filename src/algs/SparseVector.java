@@ -9,7 +9,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SparseVector} class represents a <em>d</em>-dimensional mathematical vector.

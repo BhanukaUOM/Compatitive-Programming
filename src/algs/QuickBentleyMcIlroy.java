@@ -15,7 +15,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code QuickBentleyMcIlroy} class provides static methods for sorting

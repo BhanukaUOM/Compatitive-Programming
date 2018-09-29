@@ -29,7 +29,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code KMP} class finds the first occurrence of a pattern string

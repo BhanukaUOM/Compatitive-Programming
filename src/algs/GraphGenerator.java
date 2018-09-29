@@ -10,7 +10,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code GraphGenerator} class provides static methods for creating

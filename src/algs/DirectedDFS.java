@@ -21,7 +21,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 /**
  *  The {@code DirectedDFS} class represents a data type for 
  *  determining the vertices reachable from a given source vertex <em>s</em>

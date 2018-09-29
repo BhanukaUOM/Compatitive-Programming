@@ -13,7 +13,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LinearProgramming} class represents a data type for solving a

@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SymbolDigraph} class represents a digraph, where the

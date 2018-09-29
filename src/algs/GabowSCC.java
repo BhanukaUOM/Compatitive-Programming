@@ -21,7 +21,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 /**
  *  The {@code GabowSCC} class represents a data type for 
  *  determining the strong components in a digraph.

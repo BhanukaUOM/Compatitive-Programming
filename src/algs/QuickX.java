@@ -10,7 +10,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code QuickX} class provides static methods for sorting an array

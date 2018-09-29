@@ -31,7 +31,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DepthFirstOrder} class represents a data type for 

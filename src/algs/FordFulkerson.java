@@ -9,7 +9,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code FordFulkerson} class represents a data type for computing a

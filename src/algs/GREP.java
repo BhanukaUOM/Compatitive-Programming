@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code GREP} class provides a client for reading in a sequence of

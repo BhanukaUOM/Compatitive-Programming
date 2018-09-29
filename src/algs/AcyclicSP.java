@@ -18,7 +18,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code AcyclicSP} class represents a data type for solving the

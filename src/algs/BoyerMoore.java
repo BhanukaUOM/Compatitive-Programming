@@ -30,7 +30,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BoyerMoore} class finds the first occurrence of a pattern string

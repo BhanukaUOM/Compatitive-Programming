@@ -8,7 +8,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DijkstraAllPairsSP} class represents a data type for solving the

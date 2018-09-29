@@ -41,7 +41,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SymbolGraph} class represents an undirected graph, where the

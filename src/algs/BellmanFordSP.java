@@ -27,7 +27,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BellmanFordSP} class represents a data type for solving the

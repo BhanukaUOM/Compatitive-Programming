@@ -8,7 +8,7 @@
  * 
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SeparateChainingHashST} class represents a symbol table of generic

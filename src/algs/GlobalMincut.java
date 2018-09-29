@@ -19,7 +19,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  * The {@code GlobalMincut} class represents a data type for computing a

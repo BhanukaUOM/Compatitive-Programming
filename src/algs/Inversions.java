@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Inversions} class provides static methods to count the 

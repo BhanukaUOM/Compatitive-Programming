@@ -9,7 +9,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.io.BufferedInputStream;
 import java.io.File;

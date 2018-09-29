@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.util.Arrays;
 import java.util.Comparator;

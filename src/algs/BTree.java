@@ -13,7 +13,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BTree} class represents an ordered symbol table of generic

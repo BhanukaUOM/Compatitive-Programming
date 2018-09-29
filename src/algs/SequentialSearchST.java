@@ -24,7 +24,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SequentialSearchST} class represents an (unordered)

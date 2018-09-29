@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.awt.Color;
 

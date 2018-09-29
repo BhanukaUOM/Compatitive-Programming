@@ -36,7 +36,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code PrimMST} class represents a data type for computing a

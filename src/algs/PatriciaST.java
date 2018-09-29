@@ -24,7 +24,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code PatriciaST} class provides an implementation of an unordered

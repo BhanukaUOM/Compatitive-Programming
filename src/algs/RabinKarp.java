@@ -31,7 +31,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.math.BigInteger;
 import java.util.Random;

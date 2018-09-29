@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BinaryInsertion} class provides a static method for sorting an

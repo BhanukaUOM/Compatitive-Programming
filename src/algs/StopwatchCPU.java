@@ -12,7 +12,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.lang.management.ThreadMXBean;
 import java.lang.management.ManagementFactory;

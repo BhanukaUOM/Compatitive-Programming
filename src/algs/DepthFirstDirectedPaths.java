@@ -27,7 +27,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DepthFirstDirectedPaths} class represents a data type for finding

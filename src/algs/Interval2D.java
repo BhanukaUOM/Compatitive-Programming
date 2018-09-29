@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Interval2D} class represents a closed two-dimensional interval,

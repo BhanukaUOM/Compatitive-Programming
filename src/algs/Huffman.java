@@ -20,7 +20,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Huffman} class provides static methods for compressing

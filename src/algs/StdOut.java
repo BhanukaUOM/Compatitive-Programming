@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;

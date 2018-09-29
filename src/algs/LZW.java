@@ -18,7 +18,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LZW} class provides static methods for compressing

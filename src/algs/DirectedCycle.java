@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DirectedCycle} class represents a data type for 

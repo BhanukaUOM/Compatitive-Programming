@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code RunLength} class provides static methods for compressing

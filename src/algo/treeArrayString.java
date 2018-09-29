@@ -1,4 +1,4 @@
-package CHelper.src.algo;
+package algo;
 
 public class treeArrayString {
     private static int cur;

@@ -30,7 +30,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code TransitiveClosure} class represents a data type for 

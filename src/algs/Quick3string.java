@@ -26,7 +26,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Quick3string} class provides static methods for sorting an

@@ -21,7 +21,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code TarjanSCC} class represents a data type for 

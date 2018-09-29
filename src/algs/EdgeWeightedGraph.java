@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code EdgeWeightedGraph} class represents an edge-weighted

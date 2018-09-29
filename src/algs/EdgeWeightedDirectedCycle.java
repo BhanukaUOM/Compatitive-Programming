@@ -9,7 +9,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code EdgeWeightedDirectedCycle} class represents a data type for 

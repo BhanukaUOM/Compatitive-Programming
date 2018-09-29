@@ -24,7 +24,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code FrequencyCounter} class provides a client for 

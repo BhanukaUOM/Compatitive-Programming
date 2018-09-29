@@ -23,7 +23,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 /**
  *  The {@code InsertionX} class provides static methods for sorting
  *  an array using an optimized version of insertion sort (with half exchanges

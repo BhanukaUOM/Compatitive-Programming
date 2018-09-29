@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Average} class provides a client for reading in a sequence

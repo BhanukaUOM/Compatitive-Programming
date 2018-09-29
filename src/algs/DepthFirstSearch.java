@@ -18,7 +18,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DepthFirstSearch} class represents a data type for 

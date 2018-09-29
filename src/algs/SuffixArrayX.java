@@ -26,7 +26,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code SuffixArrayX} class represents a suffix array of a string of

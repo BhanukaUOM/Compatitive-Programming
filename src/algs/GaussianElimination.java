@@ -30,7 +30,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code GaussianElimination} data type provides methods

@@ -62,7 +62,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code KosarajuSharirSCC} class represents a data type for 

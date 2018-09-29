@@ -21,7 +21,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Quick3way} class provides static methods for sorting an

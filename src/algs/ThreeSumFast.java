@@ -39,7 +39,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import java.util.Arrays;
 

@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code ThreeSum} class provides static methods for counting

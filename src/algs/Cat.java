@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Cat} class provides a client for concatenating the results

@@ -11,7 +11,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Stopwatch} data type is for measuring

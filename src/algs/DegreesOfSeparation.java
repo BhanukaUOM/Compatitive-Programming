@@ -49,7 +49,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DegreesOfSeparation} class provides a client for finding

@@ -31,7 +31,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code StdStats} class provides static methods for computing

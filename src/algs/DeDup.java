@@ -30,7 +30,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DeDup} class provides a client for reading in a sequence of

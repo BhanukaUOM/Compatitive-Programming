@@ -17,7 +17,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code DoublingRatio} class provides a client for measuring

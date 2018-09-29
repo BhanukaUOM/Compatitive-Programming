@@ -33,7 +33,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LookupIndex} class provides a data-driven client for reading in a

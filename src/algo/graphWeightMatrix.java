@@ -1,6 +1,6 @@
-package CHelper.src.algo;
+package algo;
 
-import CHelper.src.algs.In;
+import algs.In;
 
 import java.util.*;
 

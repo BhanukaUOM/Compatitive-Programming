@@ -1,4 +1,4 @@
-package CHelper.src.algo;
+package algo;
 
 import net.egork.chelper.util.InputReader;
 

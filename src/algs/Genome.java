@@ -15,7 +15,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Genome} class provides static methods for compressing

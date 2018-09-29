@@ -19,7 +19,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Polynomial} class represents a polynomial with integer

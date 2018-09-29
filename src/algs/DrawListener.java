@@ -6,7 +6,7 @@
  *  Interface that accompanies Draw.java.
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 public interface DrawListener {
 

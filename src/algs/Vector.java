@@ -24,7 +24,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Vector} class represents a <em>d</em>-dimensional Euclidean vector.

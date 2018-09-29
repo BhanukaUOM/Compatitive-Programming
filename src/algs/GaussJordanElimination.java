@@ -33,7 +33,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code GaussJordanElimination} data type provides methods

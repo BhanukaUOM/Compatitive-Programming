@@ -21,7 +21,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Heap} class provides a static methods for heapsorting

@@ -13,7 +13,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 import javax.sound.sampled.Clip;
 

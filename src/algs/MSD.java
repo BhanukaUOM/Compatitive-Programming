@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code MSD} class provides static methods for sorting an

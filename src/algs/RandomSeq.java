@@ -14,7 +14,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code RandomSeq} class is a client that prints out a pseudorandom

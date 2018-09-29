@@ -27,7 +27,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code LSD} class provides static methods for sorting an

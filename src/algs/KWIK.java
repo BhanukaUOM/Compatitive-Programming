@@ -35,7 +35,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code KWIK} class provides a {@link SuffixArray} client for computing

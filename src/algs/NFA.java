@@ -25,7 +25,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code NFA} class provides a data type for creating a

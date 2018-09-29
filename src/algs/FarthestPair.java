@@ -17,7 +17,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code FarthestPair} data type computes the farthest pair of points

@@ -12,7 +12,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 public class Alphabet {
 

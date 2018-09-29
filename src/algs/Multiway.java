@@ -23,7 +23,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code Multiway} class provides a client for reading in several

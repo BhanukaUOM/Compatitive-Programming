@@ -20,7 +20,7 @@
  *
  ******************************************************************************/
 
-package CHelper.src.algs;
+package algs;
 
 /**
  *  The {@code BinaryDump} class provides a client for displaying the contents
