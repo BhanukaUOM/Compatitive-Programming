@@ -2,6 +2,8 @@ package %package%;
 
 import %InputClassFQN%;
 import %OutputClassFQN%;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.*;
 import java.util.concurrent.atomic.LongAdder;
 import net.egork.chelper.util.InputReader;
@@ -29,6 +31,11 @@ public class %TaskClass% {
           }
       }*/
 
+
+    InputStream inputStream = System.in;
+    OutputStream outputStream = System.out;
+    input in = new input(inputStream);
+    output out = new output(outputStream);
     private int ni(){ return in.nextInt();}
     private void pl(Object... obj){ out.println(obj); }
     private class minmax{ int min; int max; }
