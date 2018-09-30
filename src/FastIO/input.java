@@ -23,6 +23,24 @@ public class input
         bufferPointer = bytesRead = 0;
     }
 
+    public int ni(){
+        int ret = 0;
+        byte c = read();
+        while (c <= ' ')
+            c = read();
+        boolean neg = (c == '-');
+        if (neg)
+            c = read();
+        do
+        {
+            ret = ret * 10 + c - '0';
+        }  while ((c = read()) >= '0' && c <= '9');
+
+        if (neg)
+            return -ret;
+        return ret;
+    }
+
     public input(String file_name)
     {
         try {

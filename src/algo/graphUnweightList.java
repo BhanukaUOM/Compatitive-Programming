@@ -1,22 +1,16 @@
 package algo;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
-public class graphWeightList {
-    private class Edge {
-        int node, weight;
-
-        Edge(int to, int weight) {
-            this.node = to;
-            this.weight = weight;
-        }
-    }
-
-    private LinkedList<Edge>[] edges;
+public class graphUnweightList {
+    private LinkedList<Integer>[] edges;
     private int n;
 
 
-    public graphWeightList(int nodes){
+    public graphUnweightList(int nodes){
         this.n = nodes;
         edges = new LinkedList[nodes];
         for (int i = 0; i <nodes ; i++) {
@@ -28,30 +22,25 @@ public class graphWeightList {
         for (int i = 0; i <n ; i++) {
             if (edges[i].size() > 0) {
                 System.out.print("Vertex " + i + " is connected to: ");
-                for (Edge j : edges[i]) {
-                    System.out.print(j.node + "(" + j.weight + ")" + " ");
+                for (int j : edges[i]) {
+                    System.out.print(j + " ");
                 }
                 System.out.println();
             }
         }
     }
 
-    public void addUndirectedEdge(int start, int end, int weight){
-        edges[start].addFirst(new Edge(end, weight));
-        edges[end].addFirst(new Edge(start, weight));
+    public void addUndirectedEdge(int start, int end){
+        edges[start].addFirst(end);
+        edges[end].addFirst(start);
     }
 
-    public void addDirectedEdge(int start, int end, int weight){
-        edges[start].addFirst(new Edge(end, weight));
+    public void addDirectedEdge(int start, int end){
+        edges[start].addFirst(end);
     }
 
-    public Edge getEdge(int i, int j){
-        for(Edge e : edges[i]){
-            if(e.node == j){
-                return e;
-            }
-        }
-        return new Edge(-1, 0);
+    public boolean getEdge(int i, int j){
+        return (edges[i].contains(j));
     }
 
     private StringBuilder Traversal;
@@ -68,10 +57,10 @@ public class graphWeightList {
             startIndex = queue.poll();
             Traversal.append(startIndex);
             Traversal.append(" ");
-            for(Edge i : edges[startIndex]){
-                if(!visited[i.node] && i.weight>0){
-                    visited[i.node] = true;
-                    queue.add(i.node);
+            for(int i : edges[startIndex]){
+                if(!visited[i]){
+                    visited[i] = true;
+                    queue.add(i);
                 }
             }
 
@@ -106,9 +95,9 @@ public class graphWeightList {
         Traversal.append(s);
         Traversal.append(" ");
 
-        for(Edge i : edges[s]){
-            if(i.weight>0 && !visited[i.node]){
-                DFSUtil(i.node, visited, Traversal);
+        for(int i : edges[s]){
+            if(!visited[i]){
+                DFSUtil(i, visited, Traversal);
             }
         }
     }
@@ -127,12 +116,12 @@ public class graphWeightList {
     private void noOfCyclesUtil(int s, boolean[] visited){
         visited[s] = true;
 
-        for(Edge i : edges[s]){
-            if(i.weight>0 && visited[i.node]){
+        for(int i: edges[s]){
+            if(visited[i]){
                 count++;
             }
-            else {
-                noOfCyclesUtil(i.node, visited);
+            else{
+                noOfCyclesUtil(i, visited);
             }
         }
     }
@@ -151,15 +140,41 @@ public class graphWeightList {
     private void hasCyclesUtil(int s, boolean[] visited){
         visited[s] = true;
         if(!cycle)
-            for(Edge i : edges[s]){
-                if(i.weight>0 && visited[i.node]){
+            for(int i: edges[s]){
+                if(visited[i]){
                     cycle = true;
                     break;
                 }
-                else if(i.weight>0 && !visited[i.node]){
-                    hasCyclesUtil(i.node, visited);
+                else{
+                    hasCyclesUtil(i, visited);
                 }
             }
+    }
+
+    ////////
+    public int MSTPrimesSum(){
+        boolean[] visited = new boolean[n];
+        visited[0] = true;
+        int min, sum=0, col=0;
+        for (int k=0; k<n; k++){
+            min = Integer.MAX_VALUE;
+            for(int j=0;j<n;j++){
+                if(visited[j]){
+                    for(int i : edges[j]){
+                        if(!visited[i]){
+                            if(min>1){
+                                min = 1;
+                                col = i;
+                            }
+                        }
+                    }
+                }
+            }
+            visited[col] = true;
+            if(min<99999)
+                sum += min;
+        }
+        return sum;
     }
 
     public String topologicalSorting(){
@@ -178,9 +193,9 @@ public class graphWeightList {
         visited[s]=true;
         Traversal.append(s);
         Traversal.append(" ");
-        for(Edge i : edges[s]){
-            if(i.weight>0 && !visited[i.node]){
-                topologicalSortingUtil(visited, i.node);
+        for(int i: edges[s]){
+            if(!visited[i]){
+                topologicalSortingUtil(visited, i);
             }
         }
     }
@@ -188,6 +203,8 @@ public class graphWeightList {
     private boolean result;
     public boolean isConnectedDFS(int u, int w){
         result = false;
+        if(edges[u].size()==0 || edges[w].size()==0)
+            return false;
         boolean[] visited = new boolean[n];
         visited[u] = true;
         isConnectedDFSUtil(u, w, visited);
@@ -199,14 +216,40 @@ public class graphWeightList {
             if(u==w)
                 result=true;
             else {
-                for(Edge i : edges[u]){
-                    if(i.weight>0 && !visited[i.node]){
-                        visited[i.node] = true;
-                        isConnectedDFSUtil(i.node, w, visited);
+                for(int i : edges[u]){
+                    if(!visited[i]){
+                        visited[i] = true;
+                        isConnectedDFSUtil(i, w, visited);
                     }
                 }
             }
         }
+    }
+
+    public boolean isConnectedBFS(int u, int w){
+        if(edges[u].size()==0 || edges[w].size()==0)
+            return false;
+        else if(u==w)
+            return true;
+        boolean visited[] = new boolean[n];
+        LinkedList<Integer> queue = new LinkedList<>();
+
+        queue.add(u);
+        visited[u] = true;
+
+        while(!queue.isEmpty()){
+            u = queue.poll();
+            if(u==w)
+                return true;
+            for(int i : edges[u]){
+                if(!visited[i]){
+                    visited[i] = true;
+                    queue.add(i);
+                }
+            }
+
+        }
+        return false;
     }
 
     public Set<Set> connectivityGrouping(){
@@ -224,68 +267,36 @@ public class graphWeightList {
                 while (!queue.isEmpty()) {
                     int startIndex = queue.poll();
                     tmp.add(startIndex);
-                    for (Edge j : edges[startIndex]) {
-                        if (!visited[j.node] && j.weight > 0) {
-                            visited[j.node] = true;
-                            queue.add(j.node);
+                    for (int j : edges[startIndex]) {
+                        if (!visited[j]) {
+                            visited[j] = true;
+                            queue.add(j);
                         }
                     }
 
                 }
             }
-            //System.out.println(tmp.toString());
             if(tmp.size()>0)
                 set.add(tmp);
         }
         return set;
     }
-
-    private int minresultance(int result[], boolean visited[], int V)
+    private int minKey(int key[], Boolean mstSet[])
     {
-        int min = Integer.MAX_VALUE;
-        int min_index=-1;
+        // Initialize min value
+        int min = Integer.MAX_VALUE, min_index=-1;
 
-        for (int v = 0; v < V; v++){
-            if (!visited[v] && result[v] <= min)
-            {
-                min = result[v];
-                min_index = v;
-            }
-        }
-        return min_index;
-    }
-
-    public int[] shotestPathDijkstra(int startNode) {
-        int[] result = new int[n];
-        Arrays.fill(result, Integer.MAX_VALUE);
-        result[startNode] = 0;
-        boolean[] visited = new boolean[n];
-        int tmp = startNode;
-        while(tmp != -1){
-            visited[tmp] = true;
-            for(Edge i : edges[tmp]){
-                if(i.node>0 && result[i.node] > result[tmp] + i.weight){
-                    result[i.node] = result[tmp] + i.weight;
-                }
-            }
-            tmp = minresultance(result, visited, n);
-        }
-
-        return result;
-    }
-
-
-    private int minKey(int key[], Boolean mstSet[]) {
-        int min = Integer.MAX_VALUE, min_index = -1;
         for (int v = 0; v < n; v++)
-            if (!mstSet[v] && key[v] < min) {
+            if (!mstSet[v] && key[v] < min)
+            {
                 min = key[v];
                 min_index = v;
             }
+
         return min_index;
     }
-
-    public int[][] MSTPrims()   //Not Working with 0 Weight Edges
+//////////////
+    public int[][] MSTPrims()
     {
         int parent[] = new int[n];
         int key[] = new int [n];
@@ -297,62 +308,24 @@ public class graphWeightList {
         }
         key[0] = 0;
         parent[0] = -1;
+
         for (int count = 0; count < n-1; count++)
         {
             int u = minKey(key, mstSet);
             mstSet[u] = true;
-            for (Edge v : edges[u])
-                if (v.weight!=0 && !mstSet[v.node] &&
-                        v.weight <  key[v.node])
+            for (int v : edges[u])
+                if (!mstSet[v] && 1 <  key[v])
                 {
-                    parent[v.node]  = u;
-                    key[v.node] = v.weight;
+                    parent[v]  = u;
+                    key[v] = 1;
                 }
         }
-        int[][] arr = new int[n-1][3];
+        int[][] mst = new int[n-1][3];
         for (int i = 1; i < n; i++) {
-            arr[i - 1][0] = parent[i];
-            arr[i - 1][1] = i;
-            arr[i - 1][2] = getEdge(i, parent[i]).weight;
+            mst[i-1][0] = parent[i];
+            mst[i-1][1] = i;
+            mst[i-1][2] = edges[i].contains(parent[i])?1:0;
         }
-        return arr;
-    }
-
-    int minDistance(int dist[], Boolean set[])
-    {
-        int min = Integer.MAX_VALUE, min_index=-1;
-
-        for (int v = 0; v < n; v++)
-            if (!set[v] && dist[v] <= min)
-            {
-                min = dist[v];
-                min_index = v;
-            }
-        return min_index;
-    }
-
-    public int[] dijkstra(int startNode)
-    {
-        int res[] = new int[n];
-        Boolean sptSet[] = new Boolean[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            res[i] = Integer.MAX_VALUE;
-            sptSet[i] = false;
-        }
-
-        res[startNode] = 0;
-
-        for (int i = 0; i < n-1; i++)
-        {
-            int u = minDistance(res, sptSet);
-            sptSet[u] = true;
-
-            for (Edge j : edges[u])
-                if (!sptSet[j.node] && j.weight!=0 && res[u] != Integer.MAX_VALUE && res[u]+j.weight < res[j.node])
-                    res[j.node] = res[u] + j.weight;
-        }
-        return res;
+        return mst;
     }
 }

@@ -11,6 +11,15 @@ public class graphUnweightMatrix {
         edges = new boolean[n][n];
     }
 
+    public void print(){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                System.out.print(edges[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public void addUndirectedEdge(int start, int end){
         edges[start][end] = true;
         edges[end][start] = true;
@@ -232,36 +241,6 @@ public class graphUnweightMatrix {
                 set.add(tmp);
         }
         return set;
-    }
-
-    public List<Integer> connectivityGroupingCount(){
-        List<Integer> list = new LinkedList<>();
-
-        boolean visited[] = new boolean[n];
-        LinkedList<Integer> queue = new LinkedList<>();
-
-        for (int i = 0; i < n; i++) {
-            int count = 0;
-            if (!visited[i]) {
-                visited[i] = true;
-                queue.add(i);
-
-                while (!queue.isEmpty()) {
-                    int startIndex = queue.poll();
-                    count++;
-                    for (int j = 0; j < n; j++) {
-                        if (!visited[j] && edges[startIndex][j]) {
-                            visited[j] = true;
-                            queue.add(j);
-                        }
-                    }
-
-                }
-            }
-            if(count>0)
-                list.add(count);
-        }
-        return list;
     }
 
     private int minKey(int key[], Boolean mstSet[])

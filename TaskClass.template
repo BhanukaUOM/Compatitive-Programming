@@ -2,8 +2,6 @@ package %package%;
 
 import %InputClassFQN%;
 import %OutputClassFQN%;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.*;
 import java.util.concurrent.atomic.LongAdder;
 import net.egork.chelper.util.InputReader;
@@ -31,13 +29,7 @@ public class %TaskClass% {
           }
       }*/
 
-
-    InputStream inputStream = System.in;
-    OutputStream outputStream = System.out;
-    input in = new input(inputStream);
-    output out = new output(outputStream);
-    private int ni(){ return in.nextInt();}
-    private void pl(Object... obj){ out.println(obj); }
+    private void print(Object... obj){ System.out.println(obj); }
     private class minmax{ int min; int max; }
     private minmax minmax(int[] arr) { int min, max, i, n=arr.length; if(n%2==0){ if(arr[0]>arr[1]){ max=arr[0]; min=arr[1];} else { min=arr[0]; max=arr[1]; } i=2; } else { min=arr[0]; max=arr[0]; i=1;} for(; i<n-1; i+=2) { if(arr[i]>arr[i+1]) { if(arr[i]>max) max=arr[i]; if(arr[i+1]<min) min=arr[i+1];} else{ if(arr[i+1]>max)  max=arr[i+1]; if(arr[i]<min) min=arr[i];}} minmax minmax = new minmax(); minmax.max=max; minmax.min=min; return minmax; }
     private int in(int[] nums, int target){ for (int i=0; i<nums.length; i++) if(nums[i]==target) return i; return -1; }

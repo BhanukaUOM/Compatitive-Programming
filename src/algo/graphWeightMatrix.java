@@ -191,6 +191,7 @@ public class graphWeightMatrix {
             Set<Integer> tmp = new HashSet<>();
             if (!visited[i]) {
                 visited[i] = true;
+                queue.add(i);
 
                 while (!queue.isEmpty()) {
                     int startIndex = queue.poll();
@@ -210,34 +211,7 @@ public class graphWeightMatrix {
         return set;
     }
 
-    public List<Integer> connectivityGroupingCount(){
-        List<Integer> list = new LinkedList<>();
 
-        boolean visited[] = new boolean[n];
-        LinkedList<Integer> queue = new LinkedList<>();
-
-        for (int i = 0; i < n; i++) {
-            int count = 0;
-            if (!visited[i]) {
-                visited[i] = true;
-
-                while (!queue.isEmpty()) {
-                    int startIndex = queue.poll();
-                    count++;
-                    for (int j = 0; j < n; j++) {
-                        if (!visited[j] && edges[startIndex][j] > 0) {
-                            visited[j] = true;
-                            queue.add(j);
-                        }
-                    }
-
-                }
-            }
-            if(count>0)
-                list.add(count);
-        }
-        return list;
-    }
 
     private int minresultance(int result[], boolean visited[], int V)
     {
@@ -315,5 +289,43 @@ public class graphWeightMatrix {
             arr[i - 1][2] = edges[i][parent[i]];
         }
         return arr;
+    }
+
+    int minDistance(int dist[], Boolean set[])
+    {
+        int min = Integer.MAX_VALUE, min_index=-1;
+
+        for (int v = 0; v < n; v++)
+            if (!set[v] && dist[v] <= min)
+            {
+                min = dist[v];
+                min_index = v;
+            }
+        return min_index;
+    }
+
+    public int[] dijkstra(int startNode)
+    {
+        int res[] = new int[n];
+        Boolean sptSet[] = new Boolean[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            res[i] = Integer.MAX_VALUE;
+            sptSet[i] = false;
+        }
+
+        res[startNode] = 0;
+
+        for (int i = 0; i < n-1; i++)
+        {
+            int u = minDistance(res, sptSet);
+            sptSet[u] = true;
+
+            for (int j = 0; j < n; j++)
+                if (!sptSet[j] && edges[u][j]!=0 && res[u] != Integer.MAX_VALUE && res[u]+edges[u][j] < res[j])
+                    res[j] = res[u] + edges[u][j];
+        }
+        return res;
     }
 }

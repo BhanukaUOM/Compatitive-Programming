@@ -22,6 +22,11 @@ public class output {
         }
     }
 
+    public void pl(Object... objects) {
+        print(objects);
+        writer.println();
+    }
+
     public void println(Object... objects) {
         print(objects);
         writer.println();
