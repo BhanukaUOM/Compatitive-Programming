@@ -322,9 +322,9 @@ public class graphWeightMatrix {
             int u = minDistance(res, sptSet);
             sptSet[u] = true;
 
-            for (int j = 0; j < n; j++)
-                if (!sptSet[j] && edges[u][j]!=0 && res[u] != Integer.MAX_VALUE && res[u]+edges[u][j] < res[j])
-                    res[j] = res[u] + edges[u][j];
+            for (int j=0; j<n; j++)
+                if (!sptSet[j] && edges[u][j]!=0 && res[u] != Integer.MAX_VALUE && res[u]+ edges[u][j] < res[j])
+                    res[j] = res[u] +  edges[u][j];
         }
         return res;
     }

@@ -4,15 +4,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.DataInputStream;
-import java.util.Arrays;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.AbstractCollection;
 import java.io.Writer;
 import java.io.OutputStreamWriter;
-import java.util.LinkedList;
 import java.io.InputStream;
 
 /**
@@ -33,21 +30,22 @@ public class Main {
     static class NeedHelp {
         public void solve(int testNumber, input in, output out) {
             int t = in.ni();
-            for (int p = 0; p < t; p++) {
+            for (int z = 0; z < t; z++) {
                 int n = in.ni();
                 int m = in.ni();
                 graphWeightMatrix g = new graphWeightMatrix(n);
                 for (int i = 0; i < m; i++) {
-                    g.addUndirectedEdge(in.ni() - 1, in.ni() - 1, 6);
+                    int x = in.ni() - 1, y = in.ni() - 1, w = in.ni();
+                    if (g.getEdge(x, y) == 0 || g.getEdge(x, y) > w)
+                        g.addUndirectedEdge(x, y, w);
                 }
-                int s = in.ni() - 1;
-                int[] arr = g.distancetonodes(s);
+                int p = in.ni() - 1;
+                int[] arr = g.dijkstra(p);
                 for (int i = 0; i < arr.length; i++) {
-                    if (arr[i] > 0) {
+                    if (arr[i] > Integer.MAX_VALUE - 100000)
+                        out.print(-1 + " ");
+                    else if (i != p)
                         out.print(arr[i] + " ");
-                    } else if (arr[i] == -1) {
-                        out.print(arr[i] + " ");
-                    }
                 }
                 out.pl();
             }
@@ -164,26 +162,41 @@ public class Main {
             edges[end][start] = weight;
         }
 
-        public int[] distancetonodes(int s) {
-            LinkedList<Integer> queue = new LinkedList<Integer>();
-            boolean[] visited = new boolean[n];
-            int[] result = new int[n];
-            Arrays.fill(result, -1);
+        public int getEdge(int i, int j) {
+            return edges[i][j];
+        }
 
-            result[s] = 0;
-            visited[s] = true;
-            queue.add(s);
+        int minDistance(int dist[], Boolean set[]) {
+            int min = Integer.MAX_VALUE, min_index = -1;
 
-            while (!queue.isEmpty()) {
-                int tmp = queue.poll();
-                for (int i = 0; i < n; i++)
-                    if (!visited[i] && edges[tmp][i] > 0) {
-                        visited[i] = true;
-                        queue.add(i);
-                        result[i] = result[tmp] + edges[tmp][i];
-                    }
+            for (int v = 0; v < n; v++)
+                if (!set[v] && dist[v] <= min) {
+                    min = dist[v];
+                    min_index = v;
+                }
+            return min_index;
+        }
+
+        public int[] dijkstra(int startNode) {
+            int res[] = new int[n];
+            Boolean sptSet[] = new Boolean[n];
+
+            for (int i = 0; i < n; i++) {
+                res[i] = Integer.MAX_VALUE;
+                sptSet[i] = false;
             }
-            return result;
+
+            res[startNode] = 0;
+
+            for (int i = 0; i < n - 1; i++) {
+                int u = minDistance(res, sptSet);
+                sptSet[u] = true;
+
+                for (int j = 0; j < n; j++)
+                    if (!sptSet[j] && edges[u][j] != 0 && res[u] != Integer.MAX_VALUE && res[u] + edges[u][j] < res[j])
+                        res[j] = res[u] + edges[u][j];
+            }
+            return res;
         }
 
     }

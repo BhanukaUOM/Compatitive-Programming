@@ -12,7 +12,12 @@ import algs.*;
 
 public class %TaskClass% {
     public void solve(int testNumber, %InputClass% in, %OutputClass% out) {
+        int t = in.ni();
+        for(int z=0; z<t; z++){
+            int n = in.ni();
+            int m = in.ni();
 
+        }
     }
 
     /*public void solve(int testNumber, input inp, output out) {
