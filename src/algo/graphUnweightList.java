@@ -1,9 +1,6 @@
 package algo;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class graphUnweightList {
     private LinkedList<Integer>[] edges;
@@ -327,5 +324,28 @@ public class graphUnweightList {
             mst[i-1][2] = edges[i].contains(parent[i])?1:0;
         }
         return mst;
+    }
+
+    public int[] distancetonodes(int s) {
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        boolean[] visited = new boolean[n];
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+
+        result[s] = 0;
+        visited[s] = true;
+        queue.add(s);
+
+        while(!queue.isEmpty()){
+            int tmp = queue.poll();
+            for (int i : edges[tmp])
+                if(!visited[i])
+                {
+                    visited[i] = true;
+                    queue.add(i);
+                    result[i] = result[tmp]+1;
+                }
+        }
+        return result;
     }
 }

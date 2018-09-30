@@ -355,4 +355,27 @@ public class graphWeightList {
         }
         return res;
     }
+
+    public int[] distancetonodes(int s) {
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        boolean[] visited = new boolean[n];
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+
+        result[s] = 0;
+        visited[s] = true;
+        queue.add(s);
+
+        while(!queue.isEmpty()){
+            int tmp = queue.poll();
+            for (Edge i : edges[tmp])
+                if(!visited[i.node])
+                {
+                    visited[i.node] = true;
+                    queue.add(i.node);
+                    result[i.node] = result[tmp]+i.weight;
+                }
+        }
+        return result;
+    }
 }

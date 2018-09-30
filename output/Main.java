@@ -4,13 +4,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.DataInputStream;
+import java.util.Arrays;
 import java.io.BufferedWriter;
-import java.util.Set;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.List;
 import java.util.AbstractCollection;
 import java.io.Writer;
 import java.io.OutputStreamWriter;
@@ -34,29 +32,25 @@ public class Main {
 
     static class NeedHelp {
         public void solve(int testNumber, input in, output out) {
-            int n = in.ni();
             int t = in.ni();
-
-            graphWeightList g = new graphWeightList(n);
-            for (int i = 0; i < t; i++) {
-                g.addUndirectedEdge(in.ni(), in.ni(), 1);
+            for (int p = 0; p < t; p++) {
+                int n = in.ni();
+                int m = in.ni();
+                graphWeightMatrix g = new graphWeightMatrix(n);
+                for (int i = 0; i < m; i++) {
+                    g.addUndirectedEdge(in.ni() - 1, in.ni() - 1, 6);
+                }
+                int s = in.ni() - 1;
+                int[] arr = g.distancetonodes(s);
+                for (int i = 0; i < arr.length; i++) {
+                    if (arr[i] > 0) {
+                        out.print(arr[i] + " ");
+                    } else if (arr[i] == -1) {
+                        out.print(arr[i] + " ");
+                    }
+                }
+                out.pl();
             }
-            List<Integer> country = new LinkedList<>();
-            for (Set i : g.connectivityGrouping()) {
-                country.add(i.size());
-            }
-            long sum = 0;
-            for (int i : country) {
-                sum += i;
-            }
-
-            long ans = 0;
-            for (int i : country) {
-                sum -= i;
-                ans += i * sum;
-            }
-
-            out.println(ans);
         }
 
     }
@@ -125,67 +119,6 @@ public class Main {
 
     }
 
-    static class graphWeightList {
-        private LinkedList<Edge>[] edges;
-        private int n;
-
-        public graphWeightList(int nodes) {
-            this.n = nodes;
-            edges = new LinkedList[nodes];
-            for (int i = 0; i < nodes; i++) {
-                edges[i] = new LinkedList<>();
-            }
-        }
-
-        public void addUndirectedEdge(int start, int end, int weight) {
-            edges[start].addFirst(new Edge(end, weight));
-            edges[end].addFirst(new Edge(start, weight));
-        }
-
-        public Set<Set> connectivityGrouping() {
-            Set<Set> set = new HashSet<>();
-
-            boolean visited[] = new boolean[n];
-            LinkedList<Integer> queue = new LinkedList<>();
-
-            for (int i = 0; i < n; i++) {
-                Set<Integer> tmp = new HashSet<>();
-                if (!visited[i]) {
-                    visited[i] = true;
-                    queue.add(i);
-
-                    while (!queue.isEmpty()) {
-                        int startIndex = queue.poll();
-                        tmp.add(startIndex);
-                        for (Edge j : edges[startIndex]) {
-                            if (!visited[j.node] && j.weight > 0) {
-                                visited[j.node] = true;
-                                queue.add(j.node);
-                            }
-                        }
-
-                    }
-                }
-                //System.out.println(tmp.toString());
-                if (tmp.size() > 0)
-                    set.add(tmp);
-            }
-            return set;
-        }
-
-        private class Edge {
-            int node;
-            int weight;
-
-            Edge(int to, int weight) {
-                this.node = to;
-                this.weight = weight;
-            }
-
-        }
-
-    }
-
     static class output {
         private final PrintWriter writer;
 
@@ -206,13 +139,51 @@ public class Main {
             }
         }
 
-        public void println(Object... objects) {
+        public void pl(Object... objects) {
             print(objects);
             writer.println();
         }
 
         public void close() {
             writer.close();
+        }
+
+    }
+
+    static class graphWeightMatrix {
+        private int[][] edges;
+        private int n;
+
+        public graphWeightMatrix(int nodes) {
+            n = nodes;
+            edges = new int[nodes][nodes];
+        }
+
+        public void addUndirectedEdge(int start, int end, int weight) {
+            edges[start][end] = weight;
+            edges[end][start] = weight;
+        }
+
+        public int[] distancetonodes(int s) {
+            LinkedList<Integer> queue = new LinkedList<Integer>();
+            boolean[] visited = new boolean[n];
+            int[] result = new int[n];
+            Arrays.fill(result, -1);
+
+            result[s] = 0;
+            visited[s] = true;
+            queue.add(s);
+
+            while (!queue.isEmpty()) {
+                int tmp = queue.poll();
+                for (int i = 0; i < n; i++)
+                    if (!visited[i] && edges[tmp][i] > 0) {
+                        visited[i] = true;
+                        queue.add(i);
+                        result[i] = result[tmp] + edges[tmp][i];
+                    }
+            }
+            return result;
         }
 
     }

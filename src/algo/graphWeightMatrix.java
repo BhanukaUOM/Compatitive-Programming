@@ -328,4 +328,27 @@ public class graphWeightMatrix {
         }
         return res;
     }
+
+    public int[] distancetonodes(int s) {
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        boolean[] visited = new boolean[n];
+        int[] result = new int[n];
+        Arrays.fill(result, -1);
+
+        result[s] = 0;
+        visited[s] = true;
+        queue.add(s);
+
+        while(!queue.isEmpty()){
+            int tmp = queue.poll();
+            for (int i=0; i<n; i++)
+                if(!visited[i] && edges[tmp][i]>0)
+                {
+                    visited[i] = true;
+                    queue.add(i);
+                    result[i] = result[tmp]+edges[tmp][i];
+                }
+        }
+        return result;
+    }
 }
