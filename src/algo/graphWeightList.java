@@ -378,4 +378,48 @@ public class graphWeightList {
         }
         return result;
     }
+
+
+    public shopping dijkstraShopping(int startNode, int bits, LinkedList<Integer>[] fish)
+    {
+        BitSet[] bought = new BitSet[n];
+        for(int i=0; i<n; i++)
+            bought[i] = new BitSet(bits);
+
+        int res[] = new int[n];
+        Boolean sptSet[] = new Boolean[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            res[i] = Integer.MAX_VALUE;
+            sptSet[i] = false;
+        }
+
+        res[startNode] = 0;
+        for(int l : fish[startNode])
+            bought[startNode].set(l);
+
+        for (int i = 0; i < n-1; i++)
+        {
+            int u = minDistance(res, sptSet);
+            sptSet[u] = true;
+
+            for (Edge j : edges[u])
+                if (!sptSet[j.node] && j.weight!=0 && res[u] != Integer.MAX_VALUE && res[u]+j.weight < res[j.node]) {
+                    res[j.node] = res[u] + j.weight;
+                    for(int l : fish[j.node])
+                        bought[j.node].set(l);
+                    bought[j.node].or(bought[u]);
+                }
+        }
+        shopping s = new shopping();
+        s.bought = bought;
+        s.res = res;
+        return s;
+    }
+
+    public class shopping{
+        public BitSet[] bought;
+        public int[] res;
+    }
 }
